@@ -38,21 +38,21 @@ aws eks update-kubeconfig --region <region> --name <cluster name>
 
 1. Set environment variables
 
-```
-export PROJECT=<PROJECT ID>
-gcloud config set project $PROJECT
-gcloud config set compute/zone us-west1-c
-```
+  ```
+  export PROJECT=<PROJECT ID>
+  gcloud config set project $PROJECT
+  gcloud config set compute/zone us-west1-c
+  ```
 
 1. Create a GKE Cluster:
-```
-gcloud container clusters create nginx-consulk8s --num-nodes=3 --machine-type "e2-highcpu-4" --enable-autoscaling --min-nodes 1 --max-nodes 4
-```
+  ```
+  gcloud container clusters create nginx-consulk8s --num-nodes=3 --machine-type "e2-highcpu-4" --enable-autoscaling --min-nodes 1 --max-nodes 4
+  ```
 
 1. Import kubectl config
-```
-gcloud container clusters get-credentials nginx-consulk8s
-```
+  ```
+  gcloud container clusters get-credentials nginx-consulk8s
+  ```
 
 ## Installation
 
