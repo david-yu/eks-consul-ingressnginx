@@ -18,13 +18,11 @@ Consul on K8s can be deployed on any K8s distro such as EKS, GKE, and AKS.
 - `eksctl` installed locally
 
 1. Create a EKS cluster:
-
   ```bash
   eksctl create cluster --name=<cluster name> --region=<region> --nodes=3 
   ```
-
-1. Import kubectl config
-
+  
+2. Import kubectl config
   ```bash
   aws eks update-kubeconfig --region <region> --name <cluster name>
   ```
@@ -37,19 +35,18 @@ Consul on K8s can be deployed on any K8s distro such as EKS, GKE, and AKS.
 - `gcloud` installed locally
 
 1. Set environment variables
-
   ```
   export PROJECT=<PROJECT ID>
   gcloud config set project $PROJECT
   gcloud config set compute/zone us-west1-c
   ```
   
-1. Create a GKE Cluster:
+2. Create a GKE Cluster:
   ```
   gcloud container clusters create nginx-consulk8s --num-nodes=3 --machine-type "e2-highcpu-4" --enable-autoscaling --min-nodes 1 --max-nodes 4
   ```
 
-1. Import kubectl config
+3. Import kubectl config
   ```
   gcloud container clusters get-credentials nginx-consulk8s
   ```
