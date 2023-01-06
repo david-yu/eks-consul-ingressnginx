@@ -1,4 +1,4 @@
-# NGINX ingress controller integration with Consul on Kubernetes using Transparent Proxy 
+# NGINX ingress (ingress-nginx) controller integration with Consul on Kubernetes using Transparent Proxy 
 
 ## Requirements
 - Kubernetes cluster on any Cloud Provider
@@ -62,13 +62,11 @@ Consul on K8s can be deployed on any K8s distro such as EKS, GKE, and AKS. Below
 helm repo add hashicorp https://helm.releases.hashicorp.com
 helm install consul hashicorp/consul --values consul-values.yaml --create-namespace --namespace consul
 ```
-
 1. Add deny all intention
 ```bash
 kubectl apply -f denyall.yaml
 ```
-
-Deploy nginx ingress
+1. Deploy nginx ingress
 ```bash
 helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
 helm upgrade --install ingress-nginx ingress-nginx \                                                                                                    ─╯
