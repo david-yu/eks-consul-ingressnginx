@@ -17,6 +17,8 @@ Consul on K8s can be deployed on any K8s distro such as EKS, GKE, and AKS.
 - Environment variables to access AWS account locally
 - `eksctl` installed locally
 
+#### Steps
+
 1. Create a EKS cluster:
   ```bash
   eksctl create cluster --name=<cluster name> --region=<region> --nodes=3 
@@ -33,6 +35,8 @@ Consul on K8s can be deployed on any K8s distro such as EKS, GKE, and AKS.
 - A Google account and a region that support GKE
 - Environment variables to access GKE account locally
 - `gcloud` installed locally
+
+#### Steps
 
 1. Set environment variables
   ```
