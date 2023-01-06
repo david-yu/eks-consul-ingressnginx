@@ -68,7 +68,7 @@ Consul on K8s can be deployed on any K8s distro such as EKS, GKE, and AKS. Below
   kubectl apply -f denyall.yaml
   ```
 
-3. Deploy nginx ingress
+3. Deploy NGINX Ingress Controller ([ingress-nginx](https://github.com/kubernetes/ingress-nginx)))
   ```bash
   helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
   helm upgrade --install ingress-nginx ingress-nginx \                                                                                                    ─╯
