@@ -7,7 +7,7 @@
 
 ## Cloud Provider Setup
 
-Consul on K8s can be deployed on any K8s distro such as EKS, GKE, and AKS. 
+Consul on K8s can be deployed on any K8s distro such as EKS, GKE, and AKS. Below are examples on how to get started on AWS and Google Cloud. 
 
 ### AWS Setup 
 
@@ -29,7 +29,7 @@ Consul on K8s can be deployed on any K8s distro such as EKS, GKE, and AKS.
   aws eks update-kubeconfig --region <region> --name <cluster name>
   ```
 
-### GKE Setup
+### Google Cloud Setup
 
 #### Requirements
 - A Google account and a region that support GKE
@@ -57,14 +57,13 @@ Consul on K8s can be deployed on any K8s distro such as EKS, GKE, and AKS.
 
 ## Installation
 
-Deploy Consul
-
+1. Deploy Consul
 ```bash
 helm repo add hashicorp https://helm.releases.hashicorp.com
 helm install consul hashicorp/consul --values consul-values.yaml --create-namespace --namespace consul
 ```
 
-Add deny all intention
+1. Add deny all intention
 ```bash
 kubectl apply -f denyall.yaml
 ```
@@ -82,6 +81,8 @@ Add configuration for Dialed Directly
 ```bash
 kubectl apply -f sd-direct.yaml
 ```
+
+
 
 Add configuration for ingress config to static-server.
 ```bash

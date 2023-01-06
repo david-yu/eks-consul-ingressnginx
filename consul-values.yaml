@@ -4,6 +4,7 @@ global:
   logJSON: false
   name: null
   domain: consul
+  image: hashicorp/consul:1.14.3
   adminPartitions:
     enabled: false
     name: "default"
@@ -33,7 +34,6 @@ global:
       limits:
         memory: "500Mi"
         cpu: "500m"
-  imageEnvoy: "envoyproxy/envoy-alpine:v1.21.2"
   openshift:
     enabled: false
 ui:
@@ -42,7 +42,6 @@ ui:
     type: LoadBalancer
 server:
   enabled: true
-    #image: "hashicorp/consul:1.11.5"
   replicas: 1
   exposeGossipAndRPCPorts: false
   ports:
@@ -66,7 +65,6 @@ server:
   disruptionBudget:
     enabled: true
 client:
-  enabled: true
   image: null
   join: null
   dataDirectoryHostPath: null
@@ -126,7 +124,6 @@ dns:
   annotations: null
   additionalSpec: null
 connectInject:
-  envoyExtraArgs: "--log-level trace --component-log-level upstream:trace,http:trace,router:trace,config:trace"
   enabled: true
   replicas: 2
   image: null
@@ -204,5 +201,3 @@ webhookCertManager:
   tolerations: null
 prometheus:
   enabled: false
-tests:
-  enabled: true
