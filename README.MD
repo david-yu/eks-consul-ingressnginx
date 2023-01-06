@@ -1,18 +1,26 @@
-# Consul on EKS using nginx as ingress (transparent mode)
+# NGINX ingress controller integration with Consul on Kubernetes using Transparent Proxy 
 
-## requirements
-- an AWS account and a region that support EKS
-- environment variables to access AWS account locally
-- `eksctl` installed locally
+## Requirements
+- Kubernetes cluster on any Cloud Provider
 - `kubectl` installed locally
 - `helm` installed locally
 
-## Installation
+## Cloud Provider Setup
+
+Consul on K8s can be deployed on any K8s distro such as EKS, GKE, and AKS. 
+
+### AWS Setup 
+
+Requirements 
+
+- An AWS account and a region that support EKS
+- Environment variables to access AWS account locally
+- `eksctl` installed locally
 
 Deploy an EKS cluster:
 
 ```bash
-eksctl create cluster --name=<cluster name> --region=<region> --nodes=3 --version 1.21
+eksctl create cluster --name=<cluster name> --region=<region> --nodes=3 
 ```
 
 Import kubectl config
@@ -20,6 +28,21 @@ Import kubectl config
 ```bash
 aws eks update-kubeconfig --region <region> --name <cluster name>
 ```
+
+### GKE Setup
+
+- A Google account and a region that support GKE
+- Environment variables to access GKE account locally
+- `gcloud` installed locally
+
+export PROJECT=<PROJECT ID>
+gcloud config set project $PROJECT
+gcloud config set compute/zone us-west1-c
+
+gcloud container clusters create nginx-consulk8s --num-nodes=3 --machine-type "e2-highcpu-4" --enable-autoscaling --min-nodes 1 --max-nodes 4
+gcloud container clusters get-credentials nginx-consulk8s
+
+## Installation
 
 Deploy Consul
 
