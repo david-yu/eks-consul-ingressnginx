@@ -60,7 +60,7 @@ Consul on K8s can be deployed on any K8s distro such as EKS, GKE, and AKS. Below
 1. Deploy Consul
   ```bash
   helm repo add hashicorp https://helm.releases.hashicorp.com
-  helm install consul hashicorp/consul --values consul-values.yaml --version 1.0.2 --create-namespace --namespace consul
+  helm install consul hashicorp/consul --values consul-values.yaml --version "1.0.2" --create-namespace --namespace consul
   ```
 
 2. Add deny all intention
