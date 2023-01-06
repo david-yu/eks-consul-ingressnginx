@@ -3,5 +3,5 @@ controller:
    consul.hashicorp.com/connect-inject: "true",
    consul.hashicorp.com/connect-service: "ingress-nginx",
    consul.hashicorp.com/transparent-proxy: "true",
-   consul.hashicorp.com/transparent-proxy-exclude-inbound-ports: "80,443",
+   consul.hashicorp.com/transparent-proxy-exclude-inbound-ports: "80,443,8443",
    }
